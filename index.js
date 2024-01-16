@@ -1,9 +1,11 @@
-const express = require('express')
-const { getSightings } = require('./utils.js')
-require('dotenv').config()
+const express = require("express");
+const { getSightings } = require("./utils.js");
+require("dotenv").config();
+var cors = require("cors");
 
-const PORT = process.env.PORT;
+const PORT = 3000;
 const app = express();
+app.use(cors());
 
 app.get("/sightings", async (req, res) => {
   const sightings = await getSightings();
